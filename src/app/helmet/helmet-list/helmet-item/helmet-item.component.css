@@ -12,10 +12,17 @@
 .helmet-price{
   background-color:rgb(230,230,230);
   padding:10px;
+  color:rgb(66,66,66);
+
+}
+
+.helmet-price .price-value{
+  letter-spacing:1px;
 }
 
 .helmet-item{
   padding:10px 10px;
+  color:rgb(99,99,99);
 }
 
 .helmet-item .helmet-name{

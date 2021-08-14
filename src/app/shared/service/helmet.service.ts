@@ -9,9 +9,10 @@ export class HelmetService{
 
   protected helmetData: any = {};
   public HELMET_RESULT = 'result';
-  constructor() { }
-  // public helmetJson:{request,result} = HelmetsResponse; //from file.
   public helmetJson:{request,result};
+
+  constructor() { }
+  
   getResult(){
     if(!this.helmetJson){
       this.readFromFile();

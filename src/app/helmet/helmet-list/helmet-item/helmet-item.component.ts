@@ -17,6 +17,14 @@ export class HelmetItemComponent implements OnInit {
     let prices = item;
     let start = prices['start'];
     let end = prices['end'];
+    start = parseFloat(start);
+    end = parseFloat(end);
+    if(start == 0){
+      start = '0.00';
+    }
+    if(end == 0){
+      end = '0.00';
+    }
     let display_price = '';
     if(start == end){
       display_price = "$"+start;
@@ -24,7 +32,6 @@ export class HelmetItemComponent implements OnInit {
       display_price = "$"+start+" - $"+end;
     }
     return display_price;
-    //console.log(display_price);
   }
 
   getImagepath(item){
@@ -32,12 +39,8 @@ export class HelmetItemComponent implements OnInit {
     let media_url = item.url;
     let extension = item.file.extension;
     let queries = "?x=176&y=176&b=&t=image/png";
-    //console.log(item);
-    let tempUrl = base_url+"/"+media_url+"."+extension+queries;
-    //console.log(tempUrl);
-    //let tempUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0snUoPx_ZhoMv8mTvjWKmFa1rrTiPlFTrPXFWnufFNNjPW454&s';
-    
-    return tempUrl;
+    let url = base_url+"/"+media_url+"."+extension+queries;
+    return url;
   }
 
   ngOnInit(): void {
