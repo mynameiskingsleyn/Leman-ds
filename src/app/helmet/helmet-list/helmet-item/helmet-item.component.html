@@ -1,0 +1,20 @@
+<div class ="col-md-12 helmet-item">
+  <div class="helmet-image-space">
+    <img
+            [src]="getImagepath(helmet.primaryMedia)"
+            alt="{{helmet.name}}" class="img-responsive"
+            style="">
+  </div>
+  <div class="helmet-name">
+    {{helmet.name}}
+  </div>
+  <div class="helmet-model">
+    {{helmet.brand.name}}
+  </div>
+  <div class="helmet-price">
+    <div class="price-value">
+      {{getPrice(helmet.partSummary.priceRanges.retail)}}
+    </div>
+    <div class="price-msrp">MSRP</div>
+  </div>
+</div>

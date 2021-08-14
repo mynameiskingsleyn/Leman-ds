@@ -1,0 +1,38 @@
+.helmet-item .helmet-price .price-value{
+  font-weight: 600;
+  font-size: 1.2em;
+  text-align: right;
+  /* padding-right:10px; */
+}
+.helmet-item .helmet-price .price-msrp{
+  text-align: right;
+  /* padding-right:10px; */
+}
+
+.helmet-price{
+  background-color:rgb(230,230,230);
+  padding:10px;
+}
+
+.helmet-item{
+  padding:10px 10px;
+}
+
+.helmet-item .helmet-name{
+  font-weight:600;
+  font-size: 1.1em;
+  height:25px;
+}
+.helmet-item .helmet-model{
+  margin-top:50px;
+  margin-bottom:10px;
+}
+
+.helmet-item .helmet-image-space{
+  margin-bottom:25px;
+}
+
+.helmet-image-space img{
+  margin: auto;
+  display: block;
+}
