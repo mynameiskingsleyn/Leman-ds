@@ -1,2 +1,4 @@
-
-<app-helmet-list> </app-helmet-list>
+<app-helmet-header (filter)="runFilter()" [max]="max" [min]="min" [errorMessage]="errorMessage"
+(sendMax)="receiveMaxPrice($event)"
+(sendMin)="receiveMinPrice($event)"> </app-helmet-header>
+<app-helmet-list [helmetsFiltered]="helmetsFiltered"> </app-helmet-list>
