@@ -3,3 +3,15 @@
 body{
   color:rbg(99, 99, 99);
 }
+
+.text-input input{
+  height:40px;
+}
+
+span.stretch{
+  display: inline-block;
+  -webkit-transform:scale(1.9,1);
+  -moz-transform:scale(1.9,1);
+  -o-transform:scale(1.9,1);
+  transform: scale(2.2,1);
+}

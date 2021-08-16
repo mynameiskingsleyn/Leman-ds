@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HelmetComponent } from './helmet/helmet.component';
 import { HelmetListComponent } from './helmet/helmet-list/helmet-list.component';
 import { HelmetItemComponent } from './helmet/helmet-list/helmet-item/helmet-item.component';
+import { HelmetHeaderComponent } from './helmet/helmet-header/helmet-header.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HelmetItemComponent } from './helmet/helmet-list/helmet-item/helmet-ite
      AppComponent,
      HelmetComponent,
      HelmetListComponent,
-     HelmetItemComponent
+     HelmetItemComponent,
+     HelmetHeaderComponent
   ],
   imports: [
     BrowserModule,
