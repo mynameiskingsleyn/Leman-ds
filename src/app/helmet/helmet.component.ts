@@ -20,13 +20,6 @@ export class HelmetComponent implements OnInit, OnDestroy {
   constructor(private helmetService: HelmetService,
     private i18nService: I18nService ) { }
 
-  receiveMaxPrice($event){
-    this.max = $event;
-    console.log("max price is "+this.max);
-  }
-  receiveMinPrice($event){
-    this.min = $event;
-  }
   runFilter(){
     var min = this.min;
     var max = this.max;
@@ -56,11 +49,12 @@ export class HelmetComponent implements OnInit, OnDestroy {
     }
   }
   ngOnInit(): void {
+    this.errorMessages = this.i18nService.getI18nMessages('error_mesages');
     this.subscription = this.helmetService.currentMaxPrice.subscribe(maxPrice => this.max = maxPrice);
     this.subscription = this.helmetService.currentMinPrice.subscribe(minPrice=> this.min =minPrice);
     this.helmets = this.helmetService.getHelmets();
     this.runFilter();
-    this.errorMessages = this.i18nService.getI18nMessages('error_mesages');
+
 
     console.log("max is "+this.max);
 
