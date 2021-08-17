@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import {HelmetService} from '../../shared/service/helmet.service';
 
 @Component({
@@ -6,12 +6,11 @@ import {HelmetService} from '../../shared/service/helmet.service';
   templateUrl: './helmet-header.component.html',
   styleUrls: ['./helmet-header.component.css']
 })
-export class HelmetHeaderComponent implements OnInit {
+export class HelmetHeaderComponent implements OnInit, OnDestroy {
 
   @Input() errorMessage;
   @Input() min;
   @Input() max;
-
 
   @Output() filter: EventEmitter<any> = new EventEmitter();
   constructor(private helmetService: HelmetService) { }
@@ -23,6 +22,11 @@ export class HelmetHeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+  }
+
+  ngOnDestroy(){
+
   }
 
 }
