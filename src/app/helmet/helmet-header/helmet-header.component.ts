@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {HelmetService} from '../../shared/service/helmet.service';
 
 @Component({
   selector: 'app-helmet-header',
@@ -13,13 +14,11 @@ export class HelmetHeaderComponent implements OnInit {
 
 
   @Output() filter: EventEmitter<any> = new EventEmitter();
-  @Output() sendMax = new EventEmitter<any>();
-  @Output() sendMin = new EventEmitter<any>();
-  constructor() { }
+  constructor(private helmetService: HelmetService) { }
 
   runFilter(){
-    this.sendMax.emit(this.max);
-    this.sendMin.emit(this.min);
+    this.helmetService.changeMaxPrice(this.max);
+    this.helmetService.changeMinPrice(this.min);
     this.filter.emit();
   }
 

@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {HelmetService} from '../shared/service/helmet.service';
 import {I18nService} from '../shared/service/i18n.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-helmet',
   templateUrl: './helmet.component.html',
   styleUrls: ['./helmet.component.css']
 })
-export class HelmetComponent implements OnInit {
+export class HelmetComponent implements OnInit, OnDestroy {
 
   public helmets;
   public helmetsFiltered;
   public errorMessage = "";
   public errorMessages:any;
-  public max: any =  500;
-  public min: any = 0;
+  public max: any;
+  public min: any;
+  subscription: Subscription;
   constructor(private helmetService: HelmetService,
     private i18nService: I18nService ) { }
 
@@ -54,10 +56,18 @@ export class HelmetComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+    this.subscription = this.helmetService.currentMaxPrice.subscribe(maxPrice => this.max = maxPrice);
+    this.subscription = this.helmetService.currentMinPrice.subscribe(minPrice=> this.min =minPrice);
     this.helmets = this.helmetService.getHelmets();
     this.runFilter();
     this.errorMessages = this.i18nService.getI18nMessages('error_mesages');
 
+    console.log("max is "+this.max);
+
+  }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe;
   }
 
 
