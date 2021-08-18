@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import {HelmetService} from '../../shared/service/helmet.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-helmet-header',
@@ -9,8 +10,9 @@ import {HelmetService} from '../../shared/service/helmet.service';
 export class HelmetHeaderComponent implements OnInit, OnDestroy {
 
   @Input() errorMessage;
-  @Input() min;
-  @Input() max;
+  public max: any;
+  public min: any;
+  subscription: Subscription;
 
   @Output() filter: EventEmitter<any> = new EventEmitter();
   constructor(private helmetService: HelmetService) { }
@@ -22,11 +24,12 @@ export class HelmetHeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-
+    this.subscription = this.helmetService.currentMaxPrice.subscribe(maxPrice => this.max = maxPrice);
+    this.subscription = this.helmetService.currentMinPrice.subscribe(maxPrice => this.min = maxPrice);
   }
 
   ngOnDestroy(){
-
+    this.subscription.unsubscribe;
   }
 
 }
