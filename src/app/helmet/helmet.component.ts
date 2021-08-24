@@ -52,6 +52,8 @@ export class HelmetComponent implements OnInit, OnDestroy {
     this.errorMessages = this.i18nService.getI18nMessages('error_mesages');
     this.subscription = this.helmetService.currentMaxPrice.subscribe(maxPrice => this.max = maxPrice);
     this.subscription = this.helmetService.currentMinPrice.subscribe(minPrice=> this.min =minPrice);
+    // this.subscription = this.helmetService.maxPriceSource.subscribe(maxPrice => this.max = maxPrice);
+    // this.subscription = this.helmetService.minPriceSource.subscribe(minPrice=> this.min =minPrice);
     this.helmets = this.helmetService.getHelmets();
     this.runFilter();
 
